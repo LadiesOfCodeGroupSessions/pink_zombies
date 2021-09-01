@@ -37,5 +37,30 @@ test("additional wounds are ignored after death", () =>{
 	let survivor = new Survivor("Emma");
 	survivor.getsWounded(3);
 	expect(survivor.getWoundCount()).toBe(2)
+})
 
+// //Each Survivor starts with the ability to perform 3 Actions per turn.
+// test("survivor starts with 3 actions per turn", () =>{
+// 	let survivor1 = new Survivor("Emma");
+// 	let survivor2 = new Survivor("Bob");
+//
+// 	allSurvivors = [survivor1, survivor2]
+//
+// 	survivors = new Survivors(allSurvivors)
+//
+// 	expect(survivor1.getActionCount()).toEqual(3)
+//
+// 	survivor.performsActions(3)
+//
+// 	expect(survivor.getActionCount()).toEqual(0)
+//
+// 	survivors.resetActions()
+//
+// 	expect(survivor1.getActionCount()).toEqual(3)
+// })
+
+test("survivor starts with 3 actions per turn", () =>{
+	let survivor = new Survivor("Emma");
+	survivor.performsActions(3);
+	expect(survivor.getActionCount()).toBe(0)
 })
