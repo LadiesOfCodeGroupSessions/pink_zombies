@@ -64,3 +64,8 @@ test("survivor starts with 3 actions per turn", () =>{
 	survivor.performsActions(3);
 	expect(survivor.getActionCount()).toBe(0)
 })
+
+test("survivor starts with 0 actions per turn", () =>{
+	let survivor = new Survivor("Emma");
+	expect(survivor.getActionCount()).toBe(3)
+})

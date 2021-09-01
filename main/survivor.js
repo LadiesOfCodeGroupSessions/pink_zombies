@@ -2,6 +2,7 @@ class Survivor {
   constructor(name) {
     this.name = name;
     this.woundCount = 0;
+    this.actionCount = 3;
   }
 
   getName() {
@@ -27,12 +28,12 @@ class Survivor {
     return false;
   }
 
-  performsActions(ActionCount) {
-
+  performsActions(num) {
+     this.actionCount -= num
   }
 
   getActionCount() {
-    return 0;
+    return this.actionCount;
   }
 }
 
