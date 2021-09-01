@@ -25,3 +25,17 @@ test("a survivor dies if they have 2 wounds", () => {
 	survivor.getsWounded(2);
 	expect(survivor.isDead()).toEqual(true);
 });
+
+test("the survivor does not die if theyhave only 1 wound",()=>{
+	let survivor = new Survivor("Emma");
+	survivor.getsWounded(1)
+
+	expect(survivor.isDead()).toEqual(false);
+})
+
+test("additional wounds are ignored after death", () =>{
+	let survivor = new Survivor("Emma");
+	survivor.getsWounded(3);
+	expect(survivor.getWoundCount()).toBe(2)
+
+})
