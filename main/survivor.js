@@ -26,6 +26,14 @@ class Survivor {
     }
     return false;
   }
+
+  performsActions(ActionCount) {
+
+  }
+
+  getActionCount() {
+    return 0;
+  }
 }
 
 module.exports = Survivor;
