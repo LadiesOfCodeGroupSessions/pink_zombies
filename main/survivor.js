@@ -1,10 +1,10 @@
 class Survivor {
-    constructor () {
-        
+    constructor (name) {
+        this.name = name
     }
 
     getName() {
-        return "Emma"
+        return this.name
     }
 }
 
