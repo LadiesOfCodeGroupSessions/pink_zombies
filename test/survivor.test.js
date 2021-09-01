@@ -13,3 +13,9 @@ test("each survivor has a name", () => {
     expect(survivor1.getName()).toEqual("Emma");
     expect(survivor2.getName()).toEqual("Bob");
 });
+
+test("each survivor begins with zero wounds", () => {
+    let survivor = new Survivor("Emma")
+
+    expect(survivor.getWoundCount()).toEqual(0);
+});
