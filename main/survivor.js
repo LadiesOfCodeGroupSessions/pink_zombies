@@ -5,6 +5,7 @@ class Survivor {
     this.actionCount = 3;
     this.equipmentCapacity = 5;
     this.inHandCapacity = 2;
+    this.equipmentList = [];
   }
 
   getName() {
@@ -44,6 +45,15 @@ class Survivor {
 
   getInHandCapacity() {
     return this.inHandCapacity;
+  }
+
+  choosesEquipment(equipment) {
+    if (equipment.length + this.equipmentList.length > this.equipmentCapacity) {
+      console.log(equipment.length);
+      throw "You have exceeded your equipment capacity";
+    } else {
+      this.equipmentList = [this.equipmentList, ...equipment];
+    }
   }
 }
 
