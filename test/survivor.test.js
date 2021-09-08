@@ -70,8 +70,12 @@ test("survivor starts with 3 actions per turn", () => {
   expect(survivor.getActionCount()).toBe(3);
 });
 
-test("survivor capacity of equipment is 5",
-  () => {
-    const survivor = new Survivor("Emma");
-    expect(survivor.getEquipmentCapacity()).toBe(5);
-  });
+test("survivor capacity of equipment is 5", () => {
+  const survivor = new Survivor("Emma");
+  expect(survivor.getEquipmentCapacity()).toBe(5);
+});
+
+test("survivor starts with ability to carry up to 2 pieces of eqipment in hand", () => {
+  const survivor = new Survivor("Emma");
+  expect(survivor.getInHandCapacity()).toBe(2);
+});

@@ -4,6 +4,7 @@ class Survivor {
     this.woundCount = 0;
     this.actionCount = 3;
     this.equipmentCapacity = 5;
+    this.inHandCapacity = 2;
   }
 
   getName() {
@@ -39,6 +40,10 @@ class Survivor {
 
   getEquipmentCapacity() {
     return this.equipmentCapacity;
+  }
+
+  getInHandCapacity() {
+    return this.inHandCapacity;
   }
 }
 
