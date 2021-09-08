@@ -79,3 +79,18 @@ test("survivor starts with ability to carry up to 2 pieces of eqipment in hand",
   const survivor = new Survivor("Emma");
   expect(survivor.getInHandCapacity()).toBe(2);
 });
+
+test("survivor can't carry more than 5 pieces of equipment", () => {
+  const survivor = new Survivor("Emma");
+
+  expect(
+    survivor.choosesEquipment([
+      "Baseball bat",
+      "Frying pan",
+      "Katana",
+      "Pistol",
+      "Bottled Water",
+      "Molotov",
+    ])
+  ).toThrowError("You have exceeded your equipment capacity");
+});
