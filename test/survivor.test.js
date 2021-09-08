@@ -93,3 +93,4 @@ test("survivor can't carry more than 5 pieces of equipment", () => {
     ])
   ).toThrow("You have exceeded your equipment capacity");
 });
+// TODO add in test to check equipment has been added correctly
