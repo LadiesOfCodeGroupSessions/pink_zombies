@@ -31,7 +31,7 @@ class Survivor {
   }
 
   getEquipmentCapacity() {
-    return this.equipmentCapacity;
+    return this.inHandEquipmentCapacity + this.reserveEquipmentCapacity 
   }
 
   getInHandCapacity() {
@@ -46,6 +46,9 @@ class Survivor {
     this.actionCount -= num;
   }
 
+  //total 5 p. 2p in hands with 3p 
+  //takes parameter equipment we want to change (replace());
+  //count final total 5 p
   choosesEquipment(equipment) {
     if (equipment.length + this.equipmentList.length > this.equipmentCapacity) {
       throw "You have exceeded your equipment capacity";
