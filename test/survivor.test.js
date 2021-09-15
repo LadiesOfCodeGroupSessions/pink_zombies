@@ -75,7 +75,7 @@ test("survivor capacity of equipment is 5", () => {
   expect(survivor.getEquipmentCapacity()).toBe(5);
 });
 
-test("survivor starts with ability to carry up to 2 pieces of eqipment in hand", () => {
+test("survivor starts with ability to carry up to 2 pieces of equipment in hand", () => {
   const survivor = new Survivor("Emma");
   expect(survivor.getInHandCapacity()).toBe(2);
 });
@@ -93,4 +93,21 @@ test("survivor can't carry more than 5 pieces of equipment", () => {
     ])
   ).toThrow("You have exceeded your equipment capacity");
 });
-// TODO add in test to check equipment has been added correctly
+
+test("test 2 are in hand and 3 are in reserve", () => {
+  const survivor = new Survivor("Emma");
+
+  survivor.choosesEquipment([
+    "Baseball bat",
+    "Frying pan",
+    "Katana",
+    "Pistol",
+    "Bottled Water",
+  ])
+
+  expect(survivor.getInHandEquipment().length).toBe(2)
+  expect(survivor.getReserveEquipment().length).toBe(3)
+
+})
+
+// TODO add in test to check equipment has been added correctly - what does this mean?

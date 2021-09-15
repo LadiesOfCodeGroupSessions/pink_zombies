@@ -3,9 +3,11 @@ class Survivor {
     this.name = name;
     this.woundCount = 0;
     this.actionCount = 3;
-    this.equipmentCapacity = 5;
+    this.inHandEquipmentCapacity = 2
+    this.reserveEquipmentCapacity = 3
     this.inHandCapacity = 2;
-    this.equipmentList = [];
+    this.inHandEquipmentList = [];
+    this.reserveEquipmentList = [];
   }
 
   getName() {
@@ -24,17 +26,6 @@ class Survivor {
     }
   }
 
-  isDead() {
-    if (this.woundCount == 2) {
-      return true;
-    }
-    return false;
-  }
-
-  performsActions(num) {
-    this.actionCount -= num;
-  }
-
   getActionCount() {
     return this.actionCount;
   }
@@ -47,13 +38,28 @@ class Survivor {
     return this.inHandCapacity;
   }
 
+  isDead() {
+    return this.woundCount === 2;
+  }
+
+  performsActions(num) {
+    this.actionCount -= num;
+  }
+
   choosesEquipment(equipment) {
     if (equipment.length + this.equipmentList.length > this.equipmentCapacity) {
-      console.log(equipment.length);
       throw "You have exceeded your equipment capacity";
     } else {
       this.equipmentList = [this.equipmentList, ...equipment];
     }
+  }
+
+  getInHandEquipment() {
+
+  }
+
+  getReserveEquipment() {
+
   }
 }
 
