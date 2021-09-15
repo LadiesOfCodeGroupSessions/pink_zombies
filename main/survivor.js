@@ -70,9 +70,13 @@ class Survivor {
 		}
 	}
 
-	getInHandEquipment() {}
+	getInHandEquipment() {
+		return this.inHandEquipmentList
+	}
 
-	getReserveEquipment() {}
+	getReserveEquipment() {
+		return this.reserveEquipmentList
+	}
 }
 
 module.exports = Survivor;

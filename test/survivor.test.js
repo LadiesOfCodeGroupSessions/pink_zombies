@@ -110,4 +110,35 @@ test("test 2 are in hand and 3 are in reserve", () => {
 
 })
 
+test("test 2 are in hand and 3 are in reserve", () => {
+  const survivor = new Survivor("Emma");
+
+  survivor.choosesEquipment([
+    "Baseball bat",
+    "Frying pan",
+    "Katana",
+    "Pistol",
+    "Bottled Water",
+  ])
+
+  expect(survivor.getInHandEquipment().length).toBe(2)
+  expect(survivor.getReserveEquipment().length).toBe(3)
+
+})
+
+test("the survivor receives 1 wound, reduces equipment capacity", () => {
+  const survivor = new Survivor("Emma");
+  survivor.choosesEquipment([
+    "Baseball bat",
+    "Frying pan",
+    "Katana",
+    "Pistol",
+    "Bottled Water",
+  ])
+
+  survivor.getsWounded(1);
+
+  expect(survivor.getOverallEquipmentCapacity().length).toBe(4)
+});
+
 // TODO add in test to check equipment has been added correctly - what does this mean?
