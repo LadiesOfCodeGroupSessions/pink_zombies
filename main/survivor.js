@@ -8,6 +8,7 @@ class Survivor {
 		this.inHandCapacity = 2;
 		this.inHandEquipmentList = [];
 		this.reserveEquipmentList = [];
+		this.isAlive = true;
 	}
 
 	getName() {
@@ -15,14 +16,15 @@ class Survivor {
 	}
 
 	getWoundCount() {
-		console.log(this.woundCount);
 		return this.woundCount;
 	}
 
 	getsWounded(num) {
 		this.woundCount += num;
+		this.reserveEquipmentCapacity--;
 		if (this.woundCount >= 2) {
 			this.woundCount = 2;
+			this.isAlive = false;
 		}
 	}
 
@@ -38,8 +40,8 @@ class Survivor {
 		return this.inHandCapacity;
 	}
 
-	isDead() {
-		return this.woundCount === 2;
+	checkIsAlive() {
+		return this.isAlive;
 	}
 
 	performsActions(num) {
@@ -71,11 +73,11 @@ class Survivor {
 	}
 
 	getInHandEquipment() {
-		return this.inHandEquipmentList
+		return this.inHandEquipmentList;
 	}
 
 	getReserveEquipment() {
-		return this.reserveEquipmentList
+		return this.reserveEquipmentList;
 	}
 }
 
