@@ -1,84 +1,97 @@
 class Survivor {
-	constructor(name) {
-		this.name = name;
-		this.woundCount = 0;
-		this.actionCount = 3;
-		this.inHandEquipmentCapacity = 2;
-		this.reserveEquipmentCapacity = 3;
-		this.inHandCapacity = 2;
-		this.inHandEquipmentList = [];
-		this.reserveEquipmentList = [];
-		this.isAlive = true;
-	}
+  constructor(name) {
+    this.name = name;
+    this.woundCount = 0;
+    this.actionCount = 3;
+    this.inHandEquipmentCapacity = 2;
+    this.reserveEquipmentCapacity = 3;
+    this.inHandCapacity = 2;
+    this.inHandEquipmentList = [];
+    this.reserveEquipmentList = [];
+    this.isAlive = true;
+  }
 
-	getName() {
-		return this.name;
-	}
+  getName() {
+    return this.name;
+  }
 
-	getWoundCount() {
-		return this.woundCount;
-	}
+  getWoundCount() {
+    return this.woundCount;
+  }
 
-	getsWounded(num) {
-		this.woundCount += num;
-		this.reserveEquipmentCapacity--;
-		if (this.woundCount >= 2) {
-			this.woundCount = 2;
-			this.isAlive = false;
-		}
-	}
+  checkEquipmentWithinCapacity() {
+    if (this.getEquipmentNumber() >= this.getEquipmentCapacity()) {
+      this.reserveEquipmentList.pop();
+    }
+  }
 
-	getActionCount() {
-		return this.actionCount;
-	}
+  getsWounded(num) {
+    this.woundCount += num;
 
-	getEquipmentCapacity() {
-		return this.inHandEquipmentCapacity + this.reserveEquipmentCapacity;
-	}
+    if (this.woundCount >= 2) {
+      this.woundCount = 2;
+      this.isAlive = false;
+    }
 
-	getInHandCapacity() {
-		return this.inHandCapacity;
-	}
+    this.reserveEquipmentCapacity--;
+    this.checkEquipmentWithinCapacity();
+  }
 
-	checkIsAlive() {
-		return this.isAlive;
-	}
+  getActionCount() {
+    return this.actionCount;
+  }
 
-	performsActions(num) {
-		this.actionCount -= num;
-	}
+  getEquipmentCapacity() {
+    return this.inHandEquipmentCapacity + this.reserveEquipmentCapacity;
+  }
 
-	//total 5 p. 2p in hands with 3p
-	//takes parameter equipment we want to change (replace());
-	//count final total 5 p
-	choosesEquipment(equipment) {
-		if (
-			equipment.length +
-				this.inHandEquipmentList.length +
-				this.reserveEquipmentList.length >
-			this.getEquipmentCapacity()
-		) {
-			throw "You have exceeded your equipment capacity";
-		} else {
-			for (let i = 0; i < equipment.length; i++) {
-				if (this.inHandEquipmentList.length < this.inHandCapacity) {
-					this.inHandEquipmentList.push(equipment[i]);
-				} else if (
-					this.reserveEquipmentList.length < this.reserveEquipmentCapacity
-				) {
-					this.reserveEquipmentList.push(equipment[i]);
-				}
-			}
-		}
-	}
+  getInHandCapacity() {
+    return this.inHandCapacity;
+  }
 
-	getInHandEquipment() {
-		return this.inHandEquipmentList;
-	}
+  getEquipmentNumber() {
+    return this.getInHandEquipment().length + this.getReserveEquipment().length;
+  }
 
-	getReserveEquipment() {
-		return this.reserveEquipmentList;
-	}
+  checkIsAlive() {
+    return this.isAlive;
+  }
+
+  performsActions(num) {
+    this.actionCount -= num;
+  }
+
+  //total 5 p. 2p in hands with 3p
+  //takes parameter equipment we want to change (replace());
+  //count final total 5 p
+  choosesEquipment(equipment) {
+    if (
+      equipment.length +
+        this.inHandEquipmentList.length +
+        this.reserveEquipmentList.length >
+      this.getEquipmentCapacity()
+    ) {
+      throw "You have exceeded your equipment capacity";
+    } else {
+      for (let i = 0; i < equipment.length; i++) {
+        if (this.inHandEquipmentList.length < this.inHandCapacity) {
+          this.inHandEquipmentList.push(equipment[i]);
+        } else if (
+          this.reserveEquipmentList.length < this.reserveEquipmentCapacity
+        ) {
+          this.reserveEquipmentList.push(equipment[i]);
+        }
+      }
+    }
+  }
+
+  getInHandEquipment() {
+    return this.inHandEquipmentList;
+  }
+
+  getReserveEquipment() {
+    return this.reserveEquipmentList;
+  }
 }
 
 module.exports = Survivor;
