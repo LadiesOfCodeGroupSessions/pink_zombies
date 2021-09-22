@@ -1,17 +1,23 @@
 class Game {
-  constructor() {
-    this.numberOfSurvivors = 0;
-    this.survivors = [];
-  }
+	constructor() {
+		this.numberOfSurvivors = 0;
+		this.survivors = [];
+	}
 
-  addSurvivor(survivor) {
-    this.numberOfSurvivors++;
-    this.survivors = [...this.survivors, survivor];
-  }
+	addSurvivor(newSurvivor) {
+		this.survivors.forEach((survivor) => {
+			if (survivor.name === newSurvivor.name) {
+				throw "Must be a unique name";
+			}
+		});
 
-  getNumberOfSurvivors() {
-    return this.numberOfSurvivors;
-  }
+		this.numberOfSurvivors++;
+		this.survivors = [...this.survivors, newSurvivor];
+	}
+
+	getNumberOfSurvivors() {
+		return this.numberOfSurvivors;
+	}
 }
 
 module.exports = Game;
