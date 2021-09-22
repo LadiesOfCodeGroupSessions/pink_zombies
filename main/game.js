@@ -1,11 +1,17 @@
 class Game {
-	constructor() {
-		this.numberOfSurvivors = 0;
-	}
+  constructor() {
+    this.numberOfSurvivors = 0;
+    this.survivors = [];
+  }
 
-	getNumberOfSurvivors() {
-		return this.numberOfSurvivors;
-	}
+  addSurvivor(survivor) {
+    this.numberOfSurvivors++;
+    this.survivors = [...this.survivors, survivor];
+  }
+
+  getNumberOfSurvivors() {
+    return this.numberOfSurvivors;
+  }
 }
 
 module.exports = Game;
