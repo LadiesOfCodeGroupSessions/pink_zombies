@@ -34,14 +34,3 @@ test("when a survivor is added check the name is unique", () => {
 		"Must be a unique name"
 	);
 });
-
-// expect(() =>
-// 	survivor.choosesEquipment([
-// 		"Baseball bat",
-// 		"Frying pan",
-// 		"Katana",
-// 		"Pistol",
-// 		"Bottled Water",
-// 		"Molotov",
-// 	])
-// ).toThrow("You have exceeded your equipment capacity");
