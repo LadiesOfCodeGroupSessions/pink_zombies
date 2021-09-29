@@ -34,3 +34,18 @@ test("when a survivor is added check the name is unique", () => {
 		"Must be a unique name"
 	);
 });
+
+test("when all survivors die, game ends", () => {
+	let game = new Game();
+	const survivor1 = new Survivor("Emma");
+	const survivor2 = new Survivor("Sarah");
+	game.addSurvivor(survivor1);
+	game.addSurvivor(survivor2);
+
+	expect(game.isRunning()).toBe(true);
+
+	survivor1.getsWounded(2)
+	survivor2.getsWounded(2)
+
+	expect(game.isRunning()).toBe(false);
+})

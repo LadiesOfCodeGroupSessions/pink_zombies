@@ -18,6 +18,19 @@ class Game {
 	getNumberOfSurvivors() {
 		return this.numberOfSurvivors;
 	}
+
+    isRunning() {
+        return true;
+    }
+
+    anyLivingSurvivors(){
+		this.survivors.forEach((survivor) => {
+			if (survivor.checkIsAlive()) {
+				return true
+			}
+		});
+		return false;
+	}
 }
 
 module.exports = Game;
