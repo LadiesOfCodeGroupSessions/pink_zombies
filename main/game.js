@@ -19,14 +19,15 @@ class Game {
 		return this.numberOfSurvivors;
 	}
 
-    isRunning() {
-        return true;
-    }
+	isRunning() {
+		return this.anyLivingSurvivors();
+	}
 
-    anyLivingSurvivors(){
+	anyLivingSurvivors() {
 		this.survivors.forEach((survivor) => {
-			if (survivor.checkIsAlive()) {
-				return true
+			// console.log(survivor.checkIsAlive());
+			if (survivor.checkIsAlive() == true) {
+				return true;
 			}
 		});
 		return false;
