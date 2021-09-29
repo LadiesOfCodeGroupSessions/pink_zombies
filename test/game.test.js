@@ -46,7 +46,6 @@ test("when all survivors die, game ends", () => {
 
 	survivor1.getsWounded(2);
 	survivor2.getsWounded(1);
-	// console.log(survivor1.checkIsAlive());
-	// console.log(survivor2.checkIsAlive());
+
 	expect(game.isRunning()).toBe(true);
 });

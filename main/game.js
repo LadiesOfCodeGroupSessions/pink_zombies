@@ -24,13 +24,12 @@ class Game {
 	}
 
 	anyLivingSurvivors() {
-		for (var i =0; i < this.survivors.length; i++) {
-			var survivor = this.survivors[i]
+		for (let i =0; i < this.survivors.length; i++) {
+			let survivor = this.survivors[i];
 			if (survivor.checkIsAlive() === true) {
 				return true;
 			}
 		}
-
 		return false;
 	}
 }
