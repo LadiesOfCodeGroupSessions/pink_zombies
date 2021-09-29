@@ -24,13 +24,31 @@ class Game {
 	}
 
 	anyLivingSurvivors() {
+		var returnVal = false
+
 		this.survivors.forEach((survivor) => {
-			// console.log(survivor.checkIsAlive());
-			if (survivor.checkIsAlive() == true) {
-				return true;
+			console.log("in anyLivingSurvivors: ", survivor.checkIsAlive());
+			if(survivor.checkIsAlive()){
+				returnVal = true
 			}
 		});
-		return false;
+
+		return returnVal
+
+
+		// for (var i =0; i < this.survivors.length; i++) {
+		// 	var survivor = this.survivors[i]
+		// 	console.log("in anyLivingSurvivors: ", survivor.checkIsAlive());
+		// 	if (survivor.checkIsAlive() === true) {
+		// 		console.log("HERERERER")
+		// 		return true;
+		// 	}
+		// }
+		//
+		// return false;
+
+
+		// for (var i = 0; i < SomeArrayOfObject.length; i++)
 	}
 }
 

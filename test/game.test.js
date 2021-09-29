@@ -45,8 +45,8 @@ test("when all survivors die, game ends", () => {
 	expect(game.isRunning()).toBe(true);
 
 	survivor1.getsWounded(2);
-	survivor2.getsWounded(2);
-	console.log(survivor1.checkIsAlive());
-	console.log(survivor2.checkIsAlive());
-	expect(game.isRunning()).toBe(false);
+	survivor2.getsWounded(1);
+	// console.log(survivor1.checkIsAlive());
+	// console.log(survivor2.checkIsAlive());
+	expect(game.isRunning()).toBe(true);
 });
